@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="cooking">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>健康厨房</title>
+		<script type="text/javascript" src="dist/js/angular/angular.js"></script>
+		<script type="text/javascript" src="dist/js/angular/angular-route.js"></script>
+		<link rel="stylesheet" href="dist/css/base.css" />
+		<link rel="stylesheet" href="dist/css/index.css" />
+		<sc </head>
+
+			<body>
+				<div class="jd_ladyout">
+					<!--头部-->
+					<header class="js_header">
+						<div class="js_header_box">
+							<a href="#" class="icon_log"></a>
+							<!--小键盘的enter键改变成按钮-->
+							<form action="#" method="post">
+								<span class="icon_seach"></span>
+								<input type="search" placeholder="请输入景点" />
+							</form>
+							<button class="login">搜索</button>
+							<a href="#" class="local">城市：广州▽</a>
+						</div>
+						<div class="bottom_list">
+						
+						</div>
+					</header>
+					
+					<!--渲染视图-->
+					<div ng-view=""></div>
+				</div>
+			</body>
+			<script>
+				var app = angular.module('cooking', ["ngRoute"]);
+				app.config(function($routeProvider) {
+					$routeProvider.when('/index', {
+							controller: 'indexCtrl',
+							templateUrl: 'view/index.html'
+						})
+						//如果找不到对应的路由那就跳到index模版文件
+						.otherwise({
+							redirectTo: '/index'
+						})
+				});
+
+				app.controller('indexCtrl', ['$scope', '$http', function($scope, $http) {
+					$scope.offset = 10;
+					$http.get('php/baidu.php', {
+						params: {
+							num: $scope.offset,
+						}
+					}).success(function(data) {
+						console.log(data);
+						$scope.news = data.data.books;
+						console.log($scope.news)
+
+					})
+				}]);
+			</script>
+
+</html>
