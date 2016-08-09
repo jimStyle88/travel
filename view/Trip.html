@@ -1,0 +1,63 @@
+<div class="jd_ladyout">
+	<header class="js_header head">
+		<h2>我的行程</h2>
+		<a href="#">登录查看行程</a>
+		<h2>发现▪本周精选</h2>
+	</header>
+	<section ng-repeat="new in news">
+			<a ng-href="{{new.bookUrl}}">
+				<h3>{{new.title}}<h3>
+				<p><img class="banner" ng-src="{{new.headImage}}" /></p>
+			</a>
+	</section>
+</div>
+<style>
+	/*头部样式*/
+	
+	.head {
+		top: 40px;
+	}
+	
+	.jd_ladyout {
+		margin: 0 auto;
+		width: 100%;
+	}
+	
+	.jd_ladyout>.js_header {
+		width: 100%;
+	}
+	
+	.jd_ladyout>.js_header>h2 {
+		height: 40px;
+		line-height: 30px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	.jd_ladyout>.js_header>a {
+		display: block;
+		width: 100px;
+		height: 50px;
+		text-align: center;
+		line-height: 50px;
+		background-color: orange;
+		margin: 0 auto;
+		color: white;
+		border-radius: 5px;
+	}
+	section>a>h3{
+		width: 100%;
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		margin:10px 0;
+	}
+	section>a>p{
+		width: 100%;
+		padding: 5px;
+	}
+	section>a>p>img{
+		width: 200px;
+		height: 200px;
+	}
+</style>

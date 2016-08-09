@@ -1,6 +1,7 @@
 <?php
     $ch = curl_init();
-    $url = 'http://apis.baidu.com/qunartravel/travellist/travellist?query=%22%22&page=1';
+	$_GET['page'];
+    $url = 'http://apis.baidu.com/qunartravel/travellist/travellist?query=%22%22&page='.$_GET['page'];
     $header = array(
         'apikey:2cf5b84e556934258c29335d55d724ee',
     );
