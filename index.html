@@ -19,10 +19,13 @@
 
 	<body>
 		<div class="jd_ladyout">
-			<div class="bottom_list">
+			<aside>
+				<isnavred></isnavred>
+			</aside>
+			<!--<div class="bottom_list">
 				<ul>
 					<li>
-						<a href="#/index" ng-click="loadMoreData()"><img src="img/shouye.jpg"><span>首页</span></a>
+						<a href="#/index" ng-click="loadMoreData()" ><img src="img/shouye.jpg"><span class="isNavRed">首页</span></a>
 					</li>
 					<li>
 						<a href="#/Trip"><img src="img/time.jpg"><span>行程</span></a>
@@ -34,7 +37,7 @@
 						<a href="#/Personal"><img src="img/boy.jpg"><span>我的</span></a>
 					</li>
 				</ul>
-			</div>
+			</div>-->
 			<!--渲染视图-->
 			<div ng-view="" class="view"></div>
 		</div>
@@ -54,6 +57,12 @@
 				}).when('/Personal', {
 					controller: 'PersonalCtrl',
 					templateUrl: 'view/Personal.html'
+				}).when('/Sign', {
+					controller: 'SignCtrl',
+					templateUrl: 'view/Sign.html'
+				}).when('/Register', {
+					controller: 'RegisterCtrl',
+					templateUrl: 'view/Register.html'
 				})
 				//如果找不到对应的路由那就跳到index模版文件
 				.otherwise({
@@ -62,7 +71,7 @@
 		});
 
 		app.controller('indexCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
-			$scope.offset = 1;
+			$scope.offset =2;
 			var loadMoreData = function() {
 				$http.get('php/baidu.php', {
 					params: {
@@ -114,8 +123,88 @@
 			}
 
 		}]);
-		app.controller('ServiceCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {}]);
+		app.controller('ServiceCtrl', ['$scope',function($scope){
+			$scope.page1 = true;
+			$scope.page2 = false;
+			$scope.show = function(page) {
+				if(page == 1) {
+					$scope.page1 = true;
+					$scope.page2 = false;
+				} else if(page == 2) {
+					$scope.page2 = true;
+					$scope.page1 = false
+				}
+			}
+		}]);
 		app.controller('PersonalCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {}]);
+		app.controller('RegisterCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+			var oregister=document.getElementById('register');
+				oregister.onclick=function(){
+					window.history.go(-1);
+				}
+		}]);
+		app.controller('SignCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+				$scope.page1 = true;
+				$scope.page2 = false;
+				$scope.show = function(page) {
+					if(page == 1) {
+						$scope.page1 = true;
+						$scope.page2 = false;
+					} else if(page == 2) {
+						$scope.page2 = true;
+						$scope.page1 = false
+					}
+				}
+				var osign=document.getElementById('sign');
+				osign.onclick=function(){
+					window.history.go(-1);
+				}
+		}]);
+		/*添加组件*/
+		app.directive('isnavred', ['$location', function($location) {
+			return {
+				restrict: 'EA', //标签和属性的写法激活此组件
+				replace: true,
+				transclude: true,
+				template: '<div class="bottom_list">' +
+					'<ul>' +
+					'<li><a href="#/index" ng-click="loadMoreData()" class="isNavRed"><img src="img/shouye.jpg"><span >首页</span></a></li>' +
+					'<li><a href="#/Trip"><img src="img/time.jpg"><span>行程</span></a></li>' +
+					'<li><a href="#/Service"><img src="img/sevier.jpg"><span>客服</span></a></li>' +
+					'<li><a href="#/Personal"><img src="img/boy.jpg"><span>我的</span></a></li>' +
+					'</ul>' +
+					'</div>',
+				link: function(scope, element, attrs) {
+					console.log(location.hash);
+					console.log(scope);
+					var navs = document.getElementsByTagName('a')
+					switch(location.hash) {
+						case '#/index':
+							angular.element(navs).removeClass('isNavRed');
+							angular.element(navs[0]).addClass('isNavRed');
+							break;
+						case '#/Trip':
+							angular.element(navs).removeClass('isNavRed');
+							angular.element(navs[1]).addClass('isNavRed');
+							break;
+						case '#/Service':
+							angular.element(navs).removeClass('isNavRed');
+							angular.element(navs[2]).addClass('isNavRed');
+							break;
+						case '#/Personal':
+							angular.element(navs).removeClass('isNavRed');
+							angular.element(navs[3]).addClass('isNavRed');
+							break;
+					}
+
+					angular.element(navs).on('click', function() {
+						//做全局的清楚
+						angular.element(navs).removeClass('isNavRed');
+						angular.element(this).addClass('isNavRed');
+					})
+				}
+			}
+		}])
 	</script>
 
 </html>

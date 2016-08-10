@@ -1,0 +1,75 @@
+<article>
+	<div class="sevser"><span id="register" ng-click="goback()">返回</span><span>注册1/3</span></div>
+	<div class="ties">注册成功可获取1000积分+返现特权</div>
+	<section>
+		<form>
+			<div class="clearfix"><span>手机号码</span><input type="text" placeholder="11位数字"></div>
+			<div class="button_a"><button>下一步，验证手机号码</button></div>
+		</form>
+	</section>
+</article>
+<style>
+	.sevser{
+		width: 100%;
+		height: 40px;
+		background-color: #28A54C;
+		text-align: center;
+		line-height: 40px;
+		color:white;
+		position: relative;
+	}
+	.sevser>span:nth-of-type(1){
+		height: 20px;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		text-align: center;
+		line-height: 20px;
+		color: white;
+	}
+	.sevser>span:nth-of-type(2){
+		font-size:18px;
+	}
+	article>section>form>div:nth-of-type(1){
+		width: 100%;
+		height: 50px;
+		line-height:36px;
+		padding: 6px;
+		border-bottom: 1px solid #999999;
+		display: flex;
+		background-color:#FAFAFA;
+		margin-bottom: 30px;
+	}
+	article>section>form>div>span{
+		float: left;
+		flex: 1;
+	}
+	article>section>form>div>input{
+		float: right;
+		padding: 5px;
+		height: 40px;
+		line-height:36px;
+		flex:3;
+		
+	}
+	article>section>form>.button_a{
+		padding: 10px;
+	}
+	article>section>form>div>button{
+		width: 100%;
+		height: 45px;
+		line-height:45px;
+		background-color: orange;
+		color: white;
+		font-size: 18px;
+		border-radius: 5px;
+	}
+	.ties{
+		width: 100%;
+		height:40px;
+		line-height: 25px;
+		color:#B2B2B2;
+		font-size: 10px;
+		padding: 10px;
+	}
+</style>

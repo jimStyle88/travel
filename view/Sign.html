@@ -1,0 +1,188 @@
+<article>
+	<div class="sevser"><span id="sign" ng-click="goback()">返回</span><span>会员登录</span><a href="#/Register"><span>注册</span></a></div>
+	<section>
+		<div ng-click="show(1)" ng-class="{'border':page1}">普通登录</div>
+		<div ng-click="show(2)" ng-class="{'border':page2}">手机动态密码登录</div>
+	</section>
+	<section ng-if="page1">
+		<form>
+			<div class="clearfix"><span>登录名</span><input type="text" placeholder="用户名/手机/邮箱/卡号"></div>
+			<div class="clearfix"><span>密码</span><input type="password" placeholder="6-20位字母.数字和符号"></div>
+			<div class="button_a"><button>登录</button></div>
+			<p>忘记密码了？</p>
+		</form>
+		<div class="denglu">
+			<div>
+				<span>第三方账号登录</span>
+				<ul>
+					<a href="#"><li><img src="img/01.jpg"></li></a>
+					<a href="#"><li><img src="img/02.jpg"></li></a>
+					<a href="#"><li><img src="img/03.jpg"></li></a>
+					<a href="#"><li><img src="img/04.jpg"></li></a>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section ng-if="page2">
+		<form>
+			<div class="clearfix"><span>手机号</span><input type="text" placeholder="请输入绑定的手机号"></div>
+			<div class="button_a"><button>获取动态密码</button></div>
+		</form>
+		<div class="denglu" style="margin-top: 50px">
+			<div>
+				<span>第三方账号登录</span>
+				<ul>
+					<a href="#"><li><img src="img/01.jpg"></li></a>
+					<a href="#"><li><img src="img/02.jpg"></li></a>
+					<a href="#"><li><img src="img/03.jpg"></li></a>
+					<a href="#"><li><img src="img/04.jpg"></li></a>
+				</ul>
+			</div>
+		</div>
+	</section>
+</article>
+<style>
+	.sevser{
+		width: 100%;
+		height: 40px;
+		background-color: #28A54C;
+		text-align: center;
+		line-height: 40px;
+		color:white;
+		position: relative;
+	}
+	.sevser>span:nth-of-type(1){
+		height: 20px;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		text-align: center;
+		line-height: 20px;
+		color: white;
+	}
+	.sevser>span:nth-of-type(2){
+		font-size:18px;
+	}
+	.sevser>a>span{
+		height: 20px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		text-align: center;
+		line-height: 20px;
+		color: white;
+	}
+	article>section:nth-of-type(1){
+		width: 100%;
+		display: flex;
+		border-bottom: 1px solid #999999;
+	}
+	article>section:nth-of-type(1)>div{
+		flex: 1;
+		text-align: center;
+		height: 40px;
+		line-height:40px;
+		color:#C0C0C0;
+	}
+	article>section:nth-of-type(1)>.border{
+		border-bottom: 2px solid #28A54C;
+		color:#28A54C
+	}
+	article>section:nth-of-type(2)>form>div{
+		width: 100%;
+		height: 50px;
+		line-height:36px;
+		padding: 6px;
+		border-bottom: 1px solid #999999;
+		display: flex;
+		background-color:#FAFAFA;
+	}
+	article>section:nth-of-type(2)>form>div>span{
+		float: left;
+		flex: 1;
+	}
+	article>section:nth-of-type(2)>form>div>input{
+		float: right;
+		padding: 5px;
+		height: 40px;
+		line-height:36px;
+		flex:3;
+		
+	}
+	article>section:nth-of-type(2)>form>div>button{
+		width: 100%;
+		height: 45px;
+		line-height:45px;
+		background-color: orange;
+		color: white;
+		font-size: 18px;
+		border-radius: 5px;
+	}
+	article>section:nth-of-type(2)>p{
+		width:150px;
+		height:50px;
+		line-height:50px;
+		color:#999999;
+		margin: 0 auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	article>section:nth-of-type(1)>.border{
+		border-bottom: 2px solid #28A54C;
+		color:#28A54C
+	}
+	article>section:nth-of-type(2)>form>.button_a{
+		border-bottom: none;
+		margin-top: 30px;
+	}
+	article>section:nth-of-type(2)>form>p{
+		width:100%;
+		height:40px;
+		line-height: 40px;
+		text-align: right;
+		color: #0C60EE;
+		font-size:14px;
+		padding-right:5px;
+	}
+	article>section:nth-of-type(2)>.denglu{
+		width: 100%;
+		padding:10px;
+	}
+	article>section:nth-of-type(2)>.denglu>div{
+		width: 100%;
+		height: 60px;
+		border-top:1px solid #999999;
+		position: relative;
+		display: flex;
+	}
+	article>section:nth-of-type(2)>.denglu>div>span{
+		width:100px;
+		position: absolute;
+		top:-8px;
+		left:50%;
+		margin-left: -50px;
+		color: #9E9E9E;
+		font-size:12px;
+		background-color: white;
+		text-align: center;
+	}
+	article>section:nth-of-type(2)>.denglu>div>ul{
+		display:flex;
+	}
+	article>section:nth-of-type(2)>.denglu>div>ul>a{
+		display: block;
+		flex:1;
+		
+	}
+	article>section:nth-of-type(2)>.denglu>div>ul>a>li{
+		width: 100%;
+		height: 50px;
+		padding:30px;
+		text-align: center;
+	}
+	article>section:nth-of-type(2)>.denglu>div>ul>a>li>img{
+		width: 100%;
+		border-radius: 60%;
+	}
+</style>

@@ -1,10 +1,122 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		客服呀页面
-	</body>
-</html>
+<article>
+	<div class="sevser">客服中心<img src="img/phone.jpg"></div>
+	<section>
+		<div ng-click="show(1)" ng-class="{'border':page1}">订单服务</div>
+		<div ng-click="show(2)" ng-class="{'border':page2}">售前咨询</div>
+	</section>
+	<section ng-if="page1">
+		<div>!</div>
+		<p>你还没有登录哦！</p>
+		<a href="#/Sign">登录查看订单</a>
+	</section>
+	<section ng-if="page2">
+		<ul>
+			<li><a href="#"><img src="img/01.jpg"><p>酒店</p></a></li>
+			<li><a href="#"><img src="img/02.jpg"><p>国内机票</p></a></li>
+			<li><a href="#"><img src="img/03.jpg"><p>国际机票</p></a></li>
+			<li><a href="#"><img src="img/04.jpg"><p>火车票</p></a></li>
+			<li><a href="#"><img src="img/05.jpg"><p>汽车票</p></a></li>
+			<li><a href="#"><img src="img/06.jpg"><p>自由行</p></a></li>
+			<li><a href="#"><img src="img/07.jpg"><p>跟团游</p></a></li>
+			<li><a href="#"><img src="img/08.jpg"><p>会员中心</p></a></li>
+			<li><a href="#"><img src="img/09.jpg"><p>周边游</p></a></li>
+			<li><a href="#"><img src="img/01.jpg"><p>用车</p></a></li>
+			<li><a href="#"><img src="img/02.jpg"><p>签证</p></a></li>
+			<li><a href="#"><img src="img/03.jpg"><p>出境WIFI</p></a></li>
+			<li><a href="#"><img src="img/04.jpg"><p>景点门票</p></a></li>
+			<li><a href="#"><img src="img/05.jpg"><p>当地玩乐</p></a></li>
+			<li><a href="#"><img src="img/06.jpg"><p>礼品卡</p></a></li>
+			<li><a href="#"><img src="img/07.jpg"><p>游轮</p></a></li>
+		</ul>
+	</section>
+</article>
+<style>
+	.sevser{
+		width: 100%;
+		height: 40px;
+		background-color: #28A54C;
+		text-align: center;
+		line-height: 40px;
+		color:white;
+		font-size: 25px;
+		position: relative;
+	}
+	.sevser>img{
+		width:30px;
+		height: 30px;
+		position: absolute;
+		top: 5px;
+		right:15px;
+	}
+	article>section:nth-of-type(1){
+		width: 100%;
+		display: flex;
+		border-bottom: 1px solid #999999;
+	}
+	article>section:nth-of-type(1)>div{
+		flex: 1;
+		text-align: center;
+		height: 30px;
+		line-height:30px;
+		color:#C0C0C0;
+	}
+	article>section:nth-of-type(1)>.border{
+		border-bottom: 2px solid #28A54C;
+		color:#28A54C
+	}
+	article>section:nth-of-type(2)>div{
+		width:50px;
+		height: 50px;
+		border: 6px solid #999999;
+		font-size: 40px;
+		margin: 0 auto;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 50px;
+		margin-top: 50px;
+		color:#999999
+	}
+	article>section:nth-of-type(2)>p{
+		width:150px;
+		height:50px;
+		line-height:50px;
+		color:#999999;
+		margin: 0 auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	article>section:nth-of-type(2)>a{
+		display: block;
+		width: 150px;
+		height:40px;
+		line-height:40px;
+		background-color: orange;
+		color: white;
+		border-radius: 3px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	article>section:nth-of-type(2){
+		width: 100%;
+		margin-top: 20px;
+	}
+	article>section:nth-of-type(2)>ul>li{
+		width: 25%;
+		float:left;
+		margin-bottom: 20px;
+	}
+	article>section:nth-of-type(2)>ul>li>a{
+		display: block;
+		padding:20px;
+	}
+	article>section:nth-of-type(2)>ul>li>a>img{
+		width:100%;
+		display: block;
+		border-radius:10px;
+	}
+	article>section:nth-of-type(2)>ul>li>a>p{
+		text-align: center;
+		margin-top: 5px;
+	}
+</style>
